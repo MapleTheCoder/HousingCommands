@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "package": "maple39.housingcommands.mixins",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "verbose": true
+}
