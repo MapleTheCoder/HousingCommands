@@ -8,6 +8,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+import maple39.housingcommands.util.Chat;
 import net.minecraft.client.gui.hud.ChatHud;
 import net.minecraft.text.Text;
 
@@ -15,7 +16,7 @@ import net.minecraft.text.Text;
 public class MixinChatHud {
     @Inject(at = @At(value = "HEAD"), method = "Lnet/minecraft/client/gui/hud/ChatHud;addMessage(Lnet/minecraft/text/Text;I)V")
     public void addChatMessage(Text message, int messageId, CallbackInfo ci) {
-        String m = message.asString();
+        String m = Chat.stripColor(message.asString());
 
         m.replace("[VIP] ", "");
         m.replace("[VIP+] ", "");
