@@ -8,6 +8,7 @@ import java.lang.reflect.Field;
  * @author Reece Dunham
  */
 public class JvmReflectionUtil {
+    @SuppressWarnings("deprecation")
     public static Object getPrivateFieldValue(Class<?> clazz, Object classInstance, String fieldName) {
         if (clazz != null && !fieldName.isEmpty()) {
             Field f;
@@ -17,6 +18,11 @@ public class JvmReflectionUtil {
                 e.printStackTrace();
                 return null;
             }
+
+            if (!f.isAccessible()) {
+                f.trySetAccessible();
+            }
+
             try {
                 return f.get(classInstance);
             } catch (IllegalArgumentException | IllegalAccessException e) {

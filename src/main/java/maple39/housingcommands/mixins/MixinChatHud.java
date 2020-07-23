@@ -26,7 +26,7 @@ public class MixinChatHud {
 
         System.out.println(m);
 
-        ArrayList<String> split = (ArrayList<String>) Arrays.asList(m.split("!"));
+        ArrayList<String> split = new ArrayList<String>(Arrays.asList(m.split("!")));
 
         split.remove(0);
         if (split.size() == 0) {
