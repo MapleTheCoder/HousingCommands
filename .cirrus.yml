@@ -2,7 +2,7 @@ task:
   name: Build Job
   auto_cancellation: $CIRRUS_BRANCH != 'master' && $CIRRUS_TAG != ''
   container:
-    image: gradle:6.5.1
+    image: gradle:6.5.1-jdk8
   gradle_cache:
     folder: ~/.gradle/caches
   script: gradle build
