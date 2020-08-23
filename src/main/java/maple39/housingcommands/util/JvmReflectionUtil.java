@@ -20,7 +20,7 @@ public class JvmReflectionUtil {
             }
 
             if (!f.isAccessible()) {
-                f.trySetAccessible();
+                f.setAccessible(true);
             }
 
             try {
