@@ -41,3 +41,11 @@ processResources {
 tasks.withType(JavaCompile) {
     options.encoding = "UTF-8"
 }
+
+task deleteDevJar(type: Delete) {
+    delete "build/libs/HousingCommands-${project.version}-dev.jar"
+}
+
+if (System.getenv("CI") != null) {
+    build.finalizedBy(deleteDevJar)
+}
