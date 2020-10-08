@@ -14,7 +14,7 @@ import maple39.housingcommands.mixin.IMixinClientPlayerInteractionManager;
  */
 public class Chat {
     /**
-     * The character used for colors.
+     * The character used for color codes.
      */
     public static final char COLOR_CHAR = '\u00A7';
 
