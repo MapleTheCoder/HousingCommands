@@ -1,6 +1,6 @@
 plugins {
     id "java"
-    id "fabric-loom" version "0.4-SNAPSHOT"
+    id "fabric-loom" version "0.5-SNAPSHOT"
 }
 
 sourceCompatibility = JavaVersion.VERSION_1_8
@@ -22,7 +22,7 @@ repositories {
 dependencies {
     minecraft "com.mojang:minecraft:1.14.4"
     mappings "net.fabricmc:yarn:1.14.4+build.18:v2"
-    modImplementation "net.fabricmc:fabric-loader:0.8.9+build.203"
+    modImplementation "net.fabricmc:fabric-loader:0.9.3+build.207"
 }
 
 processResources {
@@ -43,6 +43,7 @@ tasks.withType(JavaCompile) {
 }
 
 task deleteDevJar(type: Delete) {
+    description "Delete the remapped jar in CI to reduce confusion."
     delete "build/libs/HousingCommands-${project.version}-dev.jar"
 }
 

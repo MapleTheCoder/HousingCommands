@@ -6,7 +6,7 @@ import org.apache.logging.log4j.Logger;
 import net.fabricmc.api.ModInitializer;
 
 public class Mod implements ModInitializer {
-    private static final Logger LOGGER = LogManager.getLogger("HousingCommands");
+    public static final Logger LOGGER = LogManager.getLogger("HousingCommands");
 
     @Override
     public void onInitialize() {
