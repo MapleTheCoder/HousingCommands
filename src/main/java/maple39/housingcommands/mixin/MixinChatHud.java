@@ -1,13 +1,11 @@
-package maple39.housingcommands.mixins;
-
-import java.util.ArrayList;
-import java.util.Arrays;
+package maple39.housingcommands.mixin;
 
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+import maple39.housingcommands.Listener;
 import maple39.housingcommands.util.Chat;
 import net.minecraft.client.gui.hud.ChatHud;
 import net.minecraft.text.Text;
@@ -24,16 +22,6 @@ public class MixinChatHud {
         m.replace("[MVP+] ", "");
         m.replace("[MVP++] ", "");
 
-        System.out.println(m);
-
-        ArrayList<String> split = new ArrayList<String>(Arrays.asList(m.split("!")));
-
-        split.remove(0);
-        if (split.size() == 0) {
-            // message is just "!" with no command
-            return;
-        }
-        String command = split.get(0);
-        System.out.println(command);
+        Listener.INSTANCE.onChatMessage(m);
     }
 }
